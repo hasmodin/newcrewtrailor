@@ -1,0 +1,58 @@
+/* footer.css */
+.footer {
+  background: #1a1a1a; /* Matches the brand's primary black */
+  color: #ecf0f1;
+  padding: 60px 0 20px;
+  margin-top: 60px;
+}
+
+.footer-container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 40px;
+}
+
+.footer-col h3,
+.footer-col h4 {
+  color: #c0392b;
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+  font-size: 1.1rem;
+}
+
+.footer-col p {
+  line-height: 1.6;
+  font-size: 0.95rem;
+  color: #bdc3c7;
+}
+
+.footer-col ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-col li {
+  margin-bottom: 10px;
+  font-size: 0.9rem;
+  color: #bdc3c7;
+}
+
+/* Contact Specific Styling */
+.contact-info p {
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.footer-bottom {
+  text-align: center;
+  border-top: 1px solid #333;
+  margin-top: 50px;
+  padding-top: 20px;
+  font-size: 0.85rem;
+  color: #7f8c8d;
+}

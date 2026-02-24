@@ -1,0 +1,98 @@
+/* contact.css */
+.contact-page {
+  padding: 60px 0;
+  background-color: #f9f9f9;
+}
+
+.contact-hero {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.contact-hero h1 {
+  font-size: 2.5rem;
+  color: #1a1a1a;
+  margin-bottom: 10px;
+}
+
+.contact-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  gap: 50px;
+  padding: 0 20px;
+}
+
+/* Form Styles */
+.contact-form-section {
+  flex: 2;
+  background: #fff;
+  padding: 40px;
+  border-radius: 8px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.submit-btn {
+  background: #c0392b; /* Tailor Red */
+  color: white;
+  padding: 15px 30px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.submit-btn:hover {
+  background: #a93226;
+}
+
+/* Info Styles */
+.contact-info-section {
+  flex: 1;
+}
+
+.info-card {
+  background: #1a1a1a;
+  color: white;
+  padding: 30px;
+  border-radius: 8px;
+}
+
+.info-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+.info-item .icon {
+  font-size: 1.5rem;
+}
+
+.hours-section {
+  margin-top: 30px;
+  padding: 20px;
+  border-left: 4px solid #c0392b;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .contact-container {
+    flex-direction: column;
+  }
+}

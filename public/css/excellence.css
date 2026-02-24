@@ -1,0 +1,123 @@
+/* excellence.css */
+.excellence-header {
+  /* background-color: #1a1a1a; */
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+    url("https://images.pexels.com/photos/6764925/pexels-photo-6764925.jpeg");
+  background-size: cover;
+  background-position: center;
+  color: white;
+  padding: 100px 0 60px;
+  text-align: center;
+}
+
+.excellence-header h1 {
+  font-size: 3rem;
+  margin-bottom: 10px;
+}
+
+.process-grid {
+  padding: 80px 0;
+  background: #fff;
+}
+
+.process-grid .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  gap: 60px;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.process-content {
+  flex: 1;
+}
+
+.process-content h2 {
+  color: #1a1a1a;
+  font-size: 2.2rem;
+  margin-bottom: 30px;
+}
+
+.step {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.step-num {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #c0392b; /* Tailor Red */
+  border: 2px solid #c0392b;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.step-text h3 {
+  margin-bottom: 5px;
+  color: #1a1a1a;
+}
+
+/* Image with Badge Effect */
+.process-image {
+  flex: 1;
+  position: relative;
+}
+
+.process-image img {
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 20px 20px 0px #f0f0f0;
+}
+
+.experience-badge {
+  position: absolute;
+  bottom: -20px;
+  right: -20px;
+  background: #c0392b;
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+/* Standards Banner */
+.standards-banner {
+  /* background: #f9f9f9; */
+  background-color: #1a1a1a;
+  padding: 60px 0;
+}
+
+.standards-banner .container {
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+}
+
+.standard-box h4 {
+  color: #c0392b;
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+.standard-box p {
+  color: white;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .process-grid .container {
+    flex-direction: column;
+  }
+  .standards-banner .container {
+    flex-direction: column;
+    gap: 30px;
+  }
+}

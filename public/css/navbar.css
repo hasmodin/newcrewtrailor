@@ -1,0 +1,213 @@
+/* navbar.css */
+:root {
+  --primary-black: #1a1a1a;
+  --tailor-red: #c0392b; /* Represents premium craftsmanship */
+  --nav-height: 80px;
+}
+
+.navbar {
+  background: #ffffff;
+  height: var(--nav-height);
+  display: flex;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.nav-container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Logo Styling */
+.nav-logo {
+  text-decoration: none;
+  transition: transform 0.3s ease;
+}
+
+.nav-logo:hover {
+  transform: scale(1.05);
+}
+
+.logo-new {
+  color: var(--tailor-red);
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.logo-crew {
+  color: var(--primary-black);
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Links */
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+  align-items: center;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.nav-links a:hover {
+  color: var(--tailor-red);
+  /* transform: scale(1.2); */
+}
+
+/* navbar.css additions */
+
+/* 1. Position the parent */
+.dropdown {
+  position: relative;
+}
+
+/* 2. Style the hidden sub-menu */
+.dropdown-content {
+  position: absolute;
+  top: 100%; /* Sits directly below the navbar */
+  left: 0;
+  background-color: #ffffff;
+  min-width: 220px;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+  list-style: none;
+  padding: 10px 0;
+  border-top: 3px solid var(--tailor-red); /* Branding touch */
+
+  /* Hidden state */
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px); /* Slight slide-down effect */
+  transition: all 0.3s ease;
+  z-index: 1000;
+}
+
+/* 3. Style the sub-menu links */
+.dropdown-content li a {
+  color: var(--primary-black);
+  padding: 12px 20px;
+  display: block;
+  font-size: 0.9rem;
+  text-align: left;
+}
+
+.dropdown-content li a:hover {
+  background-color: #f9f9f9;
+  color: var(--tailor-red);
+  padding-left: 25px; /* Subtle shift effect */
+}
+
+/* 4. THE HOVER LOGIC */
+.dropdown:hover .dropdown-content {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/* 5. Mobile Adjustments */
+@media (max-width: 768px) {
+  .dropdown-content {
+    position: static; /* Stack vertically on mobile */
+    box-shadow: none;
+    opacity: 1;
+    visibility: visible;
+    display: none; /* We toggle this with JS on mobile */
+    transform: none;
+    background: #fdfdfd;
+    padding-left: 20px;
+  }
+
+  .dropdown.active .dropdown-content {
+    display: block;
+  }
+}
+
+.nav-btn {
+  background: var(--tailor-red);
+  color: #fff !important;
+  padding: 10px 20px;
+  border-radius: 4px;
+}
+
+/* Hamburger Icon */
+.hamburger {
+  display: none;
+  cursor: pointer;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.bar {
+  width: 25px;
+  height: 3px;
+  background: var(--primary-black);
+  transition: 0.3s;
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+  .dropdown-menu {
+    display: none; /* Hide by default on mobile */
+    background: white;
+    color: black;
+    list-style: none;
+    padding-left: 20px;
+  }
+
+  /* When the 'open' class is added via JS */
+  .has-dropdown.open .dropdown-menu {
+    display: block;
+  }
+
+  .arrow {
+    transition: transform 0.3s;
+    display: inline-block;
+  }
+
+  .has-dropdown.open .arrow {
+    transform: rotate(180deg); /* Flip arrow when open */
+  }
+}
+
+@media (max-width: 768px) {
+  .hamburger {
+    display: flex;
+  }
+  .nav-links {
+    position: fixed;
+    left: -100%;
+    top: var(--nav-height);
+    flex-direction: column;
+    background: #fff;
+    width: 100%;
+    height: calc(100vh - var(--nav-height));
+    transition: 0.4s ease-in-out;
+    padding-top: 40px;
+  }
+  .nav-links.active {
+    left: 0;
+  }
+
+  .hamburger.active .bar:nth-child(2) {
+    opacity: 0;
+  }
+  .hamburger.active .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+  .hamburger.active .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+}

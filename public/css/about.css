@@ -1,0 +1,116 @@
+/* vision.css */
+.vision-page {
+  line-height: 1.6;
+  color: #333;
+}
+
+/* Hero Section with Parallax-like feel */
+.vision-hero {
+  height: 40vh;
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+    url("https://images.pexels.com/photos/6764925/pexels-photo-6764925.jpeg");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+}
+
+.vision-hero h1 {
+  font-size: 3rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+/* Core Values Grid */
+.core-values {
+  padding: 80px 0;
+  background: #fff;
+}
+
+.core-values .container {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  padding: 0 20px;
+}
+
+.value-card {
+  padding: 40px;
+  border-radius: 10px;
+  background: #fdfdfd;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  border-top: 5px solid #c0392b; /* Tailor Red */
+  transition: transform 0.3s ease;
+}
+
+.value-card:hover {
+  transform: translateY(-10px);
+}
+
+.value-card h2 {
+  margin: 20px 0;
+  color: #1a1a1a;
+}
+
+.value-card ul {
+  list-style: none;
+  padding: 0;
+}
+
+.value-card li {
+  margin-bottom: 15px;
+  padding-left: 25px;
+  position: relative;
+}
+
+.value-card li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: #c0392b;
+  font-weight: bold;
+}
+
+/* Excellence Section */
+.excellence-section {
+  padding: 80px 0;
+  background: #1a1a1a;
+  color: white;
+  text-align: center;
+}
+
+.excellence-content {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin-top: 50px;
+  gap: 20px;
+}
+
+.stat-item span {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #c0392b;
+  display: block;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .core-values .container {
+    grid-template-columns: 1fr;
+  }
+  .vision-hero h1 {
+    font-size: 2rem;
+  }
+}

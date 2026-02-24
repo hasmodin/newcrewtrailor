@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>New Crew Trailor</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/navbar.css" />
+    <link rel="stylesheet" href="/css/footer.css" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/index.css" />
+    <link rel="stylesheet" href="/css/contact.css" />
+    <link rel="stylesheet" href="/css/about.css" />
+    <link rel="stylesheet" href="/css/excellence.css" />
+    <link rel="stylesheet" href="/css/products/formal.css" />
+    <link rel="stylesheet" href="/css/products/uniform.css" />
+    <link rel="stylesheet" href="/css/products/accessories.css" />
+    <link rel="stylesheet" href="/css/whatsapp-btn.css" />
+  </head>
+  <body>
+    <div class="container">
+      <%- include("../includes/navbar.ejs") %> <%- body %>
+      <!-- whatsapp float button -->
+      <a
+        href="https://wa.me/97455066593"
+        class="whatsapp-float"
+        target="_blank"
+      >
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
+          alt="WhatsApp"
+          width="50"
+        />
+      </a>
+      <!-- end here -->
+
+      <%- include("../includes/footer.ejs") %>
+    </div>
+  </body>
+</html>

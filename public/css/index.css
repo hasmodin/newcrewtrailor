@@ -1,0 +1,265 @@
+:root {
+  --primary-black: #1a1a1a;
+  --tailor-red: #c0392b; /* Represents premium craftsmanship */
+  --nav-height: 80px;
+}
+/* Hero Section with the Walking Man Logo style */
+.hero {
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("/uploads/newcrewtrailor.jpg");
+
+  background-size: cover;
+  background-position: center; /* Ensures the tailor/fabric remains visible */
+  background-repeat: no-repeat;
+  min-height: 100vh; /* Changed from height to min-height for content expansion */
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.hero-content {
+  color: white; /* Changed to white for better contrast on the dark image */
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  width: 100%;
+  max-width: 1200px; /* Prevents text from stretching too wide on desktops */
+}
+
+.logo-name {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  animation: logoName 5s infinite ease-in-out;
+  overflow: hidden;
+}
+
+.hero-content h1 {
+  /* Clamp makes the font fluid: Minimum 2.5rem, Preferred 8vw, Maximum 5rem */
+  font-size: clamp(2.5rem, 8vw, 5rem);
+  color: white;
+  line-height: 1.1;
+  margin: 0;
+
+  display: block;
+  /* transform: translateY(110%); /* Start completely hidden below */
+  /* animation: revealText 1.2s cubic-bezier(0.77, 0, 0.175, 1) forwards;  */
+  /* position: relative; */
+  /* overflow: hidden; */
+  /* animation: revealText 5s infinite; */
+}
+/* @keyframes revealText {
+  0% {
+    transform: translateX(110%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+.c {
+  animation-delay: 0.2s;
+}
+.t {
+  animation-delay: 0.4s;
+} */
+
+/* Mobile Specific Adjustments */
+@media (max-width: 768px) {
+  .hero {
+    padding: 60px 15px;
+  }
+
+  .logo-name {
+    gap: 0.5rem;
+  }
+
+  .hero-content p {
+    font-size: 1.1rem; /* Adjusting the paragraph we worked on earlier */
+  }
+}
+.hero-content a {
+  display: inline-block;
+  margin: 1.5rem auto 0;
+  min-width: 180px;
+  max-width: 250px;
+  width: auto;
+}
+
+.btn-primary {
+  background: var(--tailor-red);
+  color: #fff !important;
+  padding: 12px 30px;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s ease; /* Smooth hover effect */
+  box-shadow: 0 4px 15px rgba(192, 57, 43, 0.3);
+}
+.hero-container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 50px 20px;
+}
+/* Services Grid */
+.services {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.service-card {
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+  border: 1px solid #eee;
+}
+.service-card img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 5px;
+  margin-bottom: 0.5rem;
+}
+
+.service-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.service-img-wrapper {
+  position: relative;
+  height: 350px;
+  overflow: hidden;
+}
+
+.service-img-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.service-card:hover .service-img-wrapper img {
+  transform: scale(1.1);
+}
+
+/* Typography from your PDF */
+h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.why-us-section {
+  padding: 80px 0;
+  background-color: #fff;
+}
+
+.why-us-flex {
+  display: flex;
+  align-items: center;
+  gap: 50px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Image Styling */
+.why-us-image {
+  flex: 1;
+  position: relative;
+}
+
+.why-us-image img {
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: 20px 20px 0px var(--tailor-red); /* Your brand color accent */
+  object-fit: cover;
+}
+
+.experience-tag {
+  position: absolute;
+  bottom: 20px;
+  left: -20px;
+  background: #1a1a1a;
+  color: white;
+  padding: 15px 25px;
+  font-weight: bold;
+  border-radius: 4px;
+}
+
+/* Content Styling */
+.why-us-content {
+  flex: 1;
+}
+
+.why-us-content h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: #1a1a1a;
+}
+
+.why-us-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 30px;
+}
+
+.why-us-list li {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+.why-us-list .icon {
+  font-size: 1.5rem;
+  color: var(--tailor-red);
+}
+
+.why-us-list strong {
+  display: block;
+  font-size: 1.1rem;
+  color: #1a1a1a;
+}
+
+.why-us-list p {
+  font-size: 0.95rem;
+  color: #666;
+  margin: 5px 0 0;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 992px) {
+  .why-us-flex {
+    flex-direction: column; /* Stacks image on top of text */
+    text-align: center;
+  }
+
+  .why-us-list li {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .why-us-image img {
+    box-shadow: none; /* Clean look for mobile */
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    flex-direction: column;
+  }
+}
