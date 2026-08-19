@@ -12,6 +12,9 @@ router.get("/contact", (req, res) => {
 router.get("/about", (req, res) => {
   res.render("pages/about.ejs");
 });
+router.get("/alterations", (req, res) => {
+  res.render("pages/alteration");
+});
 router.get("/excellence", (req, res) => {
   res.render("pages/excellence");
 });

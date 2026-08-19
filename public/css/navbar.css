@@ -5,8 +5,15 @@
   --nav-height: 80px;
 }
 
+/* Standard Gray: #808080
+Light Gray: #D3D3D3
+Dark Gray: #A9A9A9
+Dim Gray: #696969
+late Gray: #708090
+Silver: #C0C0C0 */
+
 .navbar {
-  background: #ffffff;
+  background: #d3d3d3;
   height: var(--nav-height);
   display: flex;
   align-items: center;
