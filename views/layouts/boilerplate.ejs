@@ -8,6 +8,13 @@
       href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@300;400;600&display=swap"
       rel="stylesheet"
     /> -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css"
+      integrity="sha512-QeR2VH+lsBE5LSAe1Q5EnTBbe7XTBubt8dG93Y7gidSgdMCr8nVqKcfKAMyN96SV8KDbZVTDXChatu5G2KQGzg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
     <link rel="stylesheet" href="/css/navbar.css" />
     <link rel="stylesheet" href="/css/footer.css" />
     <link rel="stylesheet" href="/css/style.css" />
@@ -20,25 +27,16 @@
     <link rel="stylesheet" href="/css/products/accessories.css" />
     <link rel="stylesheet" href="/css/whatsapp-btn.css" />
     <link rel="stylesheet" href="/css/alterations.css" />
+    <link rel="stylesheet" href="/css/grid-cursor.css" />
   </head>
   <body>
-    <div class="container">
+    <main class="container">
       <%- include("../includes/navbar.ejs") %> <%- body %>
       <!-- whatsapp float button -->
-      <a
-        href="https://wa.me/97455066593"
-        class="whatsapp-float"
-        target="_blank"
-      >
-        <img
-          src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
-          alt="WhatsApp"
-          width="50"
-        />
-      </a>
+      <%- include("../includes/whatsApp") %>
       <!-- end here -->
 
       <%- include("../includes/footer.ejs") %>
-    </div>
+    </main>
   </body>
 </html>

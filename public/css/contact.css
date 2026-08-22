@@ -47,18 +47,20 @@
 }
 
 .submit-btn {
-  background: #c0392b; /* Tailor Red */
-  color: white;
-  padding: 15px 30px;
-  border: none;
+  color: #1a1a1a;
+  padding: 10px 20px;
   border-radius: 4px;
+  outline: none;
+  border: 1px solid black;
   cursor: pointer;
-  font-weight: bold;
-  transition: 0.3s;
+  font-weight: 500;
+  font-size: large;
+  transition: all 0.3s ease-in-out;
 }
 
 .submit-btn:hover {
-  background: #a93226;
+  background-color: black;
+  color: white !important;
 }
 
 /* Info Styles */
@@ -87,7 +89,7 @@
 .hours-section {
   margin-top: 30px;
   padding: 20px;
-  border-left: 4px solid #c0392b;
+  border-left: 4px solid #1a1a1a;
 }
 
 /* Responsive */

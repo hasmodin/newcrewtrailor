@@ -74,7 +74,7 @@
   position: absolute;
   top: 15px;
   right: 15px;
-  background: #c0392b;
+  background: black;
   color: white;
   padding: 5px 12px;
   font-size: 0.8rem;
@@ -112,7 +112,7 @@
 .inquiry-btn {
   display: inline-block;
   margin-top: 10px;
-  color: #c0392b;
+  color: black;
   text-decoration: none;
   font-weight: bold;
   border: 1px solid #c0392b;
@@ -122,6 +122,6 @@
 }
 
 .inquiry-btn:hover {
-  background: #c0392b;
+  background: black;
   color: white;
 }

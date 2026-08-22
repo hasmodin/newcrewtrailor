@@ -1,6 +1,6 @@
 /* navbar.css */
 :root {
-  --primary-black: #1a1a1a;
+  --primary-black: #f2f2f2;
   --tailor-red: #c0392b; /* Represents premium craftsmanship */
   --nav-height: 80px;
 }
@@ -13,7 +13,7 @@ late Gray: #708090
 Silver: #C0C0C0 */
 
 .navbar {
-  background: #d3d3d3;
+  background: #f2f2f2;
   height: var(--nav-height);
   display: flex;
   align-items: center;
@@ -36,10 +36,14 @@ Silver: #C0C0C0 */
 .nav-logo {
   text-decoration: none;
   transition: transform 0.3s ease;
+  opacity: 0.8;
 }
 
 .nav-logo:hover {
   transform: scale(1.05);
+
+  transition: all 0.3s ease-in-out;
+  opacity: 1;
 }
 
 .logo-new {
@@ -66,12 +70,16 @@ Silver: #C0C0C0 */
 .nav-links a {
   text-decoration: none;
   color: #333;
+  opacity: 0.8;
   font-weight: 500;
   transition: 0.3s;
 }
 
 .nav-links a:hover {
-  color: var(--tailor-red);
+  /* color: white; */
+  text-decoration: underline;
+  opacity: 1;
+
   /* transform: scale(1.2); */
 }
 
@@ -143,10 +151,16 @@ Silver: #C0C0C0 */
 }
 
 .nav-btn {
-  background: var(--tailor-red);
-  color: #fff !important;
+  /* background: black; */
+  color: #1a1a1a;
   padding: 10px 20px;
   border-radius: 4px;
+  outline: none;
+  border: 1px solid black;
+}
+.nav-btn:hover {
+  background-color: black;
+  color: white !important;
 }
 
 /* Hamburger Icon */

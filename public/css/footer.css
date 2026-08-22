@@ -1,9 +1,11 @@
 /* footer.css */
 .footer {
-  background: #1a1a1a; /* Matches the brand's primary black */
+  /* background: #1a1a1a;  */
+  /* Matches the brand's primary black */
+  background-color: #1a1a1a;
   color: #ecf0f1;
   padding: 60px 0 20px;
-  margin-top: 60px;
+  /* margin-top: 20px; */
 }
 
 .footer-container {
@@ -17,7 +19,7 @@
 
 .footer-col h3,
 .footer-col h4 {
-  color: #c0392b;
+  color: white;
   margin-bottom: 1.5rem;
   text-transform: uppercase;
   font-size: 1.1rem;
@@ -49,10 +51,25 @@
 }
 
 .footer-bottom {
+  background-color: #f2f2f2 !important;
   text-align: center;
   border-top: 1px solid #333;
   margin-top: 50px;
-  padding-top: 20px;
+  padding: 20px;
   font-size: 0.85rem;
+  color: #1a1a1a;
+}
+
+.social-links {
+  margin-top: 0.5rem;
+}
+.social-links i {
+  font-size: 1.5rem;
   color: #7f8c8d;
+  cursor: pointer;
+}
+
+.social-links i:hover {
+  transform: scale(1.1);
+  color: white;
 }

@@ -100,3 +100,28 @@
 #alteration li {
   margin-bottom: 8px;
 }
+
+@media (max-width: 768px) {
+}
+
+@media (max-width: 768px) {
+  /* 1. Add mobile padding to the parent container */
+  #alteration {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  /* 2. Pull the top Hero Image edge-to-edge across the screen */
+  #alteration > div:first-of-type {
+    margin-left: -16px;
+    margin-right: -16px;
+    width: calc(100% + 32px);
+    max-width: none;
+  }
+
+  /* 3. Scale down hero headline for smaller screen sizes */
+  #alteration > div:first-of-type h2 {
+    font-size: 1.8rem;
+    width: 90%;
+  }
+}

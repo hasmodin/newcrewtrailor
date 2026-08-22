@@ -43,9 +43,9 @@
 .value-card {
   padding: 40px;
   border-radius: 10px;
-  background: #fdfdfd;
+  background: #f2f2f2;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-  border-top: 5px solid #c0392b; /* Tailor Red */
+  border-top: 5px solid black; /* Tailor Red */
   transition: transform 0.3s ease;
 }
 
@@ -80,13 +80,14 @@
 /* Excellence Section */
 .excellence-section {
   padding: 80px 0;
-  background: #1a1a1a;
-  color: white;
+  /* background: #1a1a1a; */
+  color: black;
   text-align: center;
+  background-color: #f2f2f2;
 }
 
 .excellence-content {
-  max-width: 800px;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
 }
@@ -101,7 +102,7 @@
 .stat-item span {
   font-size: 2.5rem;
   font-weight: bold;
-  color: #c0392b;
+  color: black;
   display: block;
 }
 
@@ -112,5 +113,8 @@
   }
   .vision-hero h1 {
     font-size: 2rem;
+  }
+  .stats-grid {
+    grid-template-columns: 1fr;
   }
 }

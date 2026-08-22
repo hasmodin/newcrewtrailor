@@ -1,0 +1,229 @@
+.cursor-grid-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1;
+  pointer-events: auto;
+}
+
+/* Changed to a dense 6x6 grid matrix */
+.cursor-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(6, 1fr);
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.cell {
+  z-index: 2;
+}
+
+.flow-cursor {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  background: radial-gradient(
+    circle,
+    rgba(99, 102, 241, 0.5) 0%,
+    rgba(168, 85, 247, 0) 60%
+  );
+  border: 2px solid rgba(168, 85, 247, 0.3);
+  border-radius: 50%;
+  pointer-events: none;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  /* Reduced transition time to 0.2s so it snaps closer to the mouse immediately */
+  transition: all 0.2s cubic-bezier(0.1, 0.8, 0.3, 1);
+  animation: fluid-shape 5s ease-in-out infinite alternate;
+}
+
+/* 6x6 CODES: Coordinates matching your actual cursor position closely */
+/* Row 1 */
+.cell:nth-child(1):hover ~ .flow-cursor {
+  left: 8.3%;
+  top: 8.3%;
+}
+.cell:nth-child(2):hover ~ .flow-cursor {
+  left: 25%;
+  top: 8.3%;
+}
+.cell:nth-child(3):hover ~ .flow-cursor {
+  left: 41.6%;
+  top: 8.3%;
+}
+.cell:nth-child(4):hover ~ .flow-cursor {
+  left: 58.3%;
+  top: 8.3%;
+}
+.cell:nth-child(5):hover ~ .flow-cursor {
+  left: 75%;
+  top: 8.3%;
+}
+.cell:nth-child(6):hover ~ .flow-cursor {
+  left: 91.6%;
+  top: 8.3%;
+}
+/* Row 2 */
+.cell:nth-child(7):hover ~ .flow-cursor {
+  left: 8.3%;
+  top: 25%;
+}
+.cell:nth-child(8):hover ~ .flow-cursor {
+  left: 25%;
+  top: 25%;
+}
+.cell:nth-child(9):hover ~ .flow-cursor {
+  left: 41.6%;
+  top: 25%;
+}
+.cell:nth-child(10):hover ~ .flow-cursor {
+  left: 58.3%;
+  top: 25%;
+}
+.cell:nth-child(11):hover ~ .flow-cursor {
+  left: 75%;
+  top: 25%;
+}
+.cell:nth-child(12):hover ~ .flow-cursor {
+  left: 91.6%;
+  top: 25%;
+}
+/* Row 3 */
+.cell:nth-child(13):hover ~ .flow-cursor {
+  left: 8.3%;
+  top: 41.6%;
+}
+.cell:nth-child(14):hover ~ .flow-cursor {
+  left: 25%;
+  top: 41.6%;
+}
+.cell:nth-child(15):hover ~ .flow-cursor {
+  left: 41.6%;
+  top: 41.6%;
+}
+.cell:nth-child(16):hover ~ .flow-cursor {
+  left: 58.3%;
+  top: 41.6%;
+}
+.cell:nth-child(17):hover ~ .flow-cursor {
+  left: 75%;
+  top: 41.6%;
+}
+.cell:nth-child(18):hover ~ .flow-cursor {
+  left: 91.6%;
+  top: 41.6%;
+}
+/* Row 4 */
+.cell:nth-child(19):hover ~ .flow-cursor {
+  left: 8.3%;
+  top: 58.3%;
+}
+.cell:nth-child(20):hover ~ .flow-cursor {
+  left: 25%;
+  top: 58.3%;
+}
+.cell:nth-child(21):hover ~ .flow-cursor {
+  left: 41.6%;
+  top: 58.3%;
+}
+.cell:nth-child(22):hover ~ .flow-cursor {
+  left: 58.3%;
+  top: 58.3%;
+}
+.cell:nth-child(23):hover ~ .flow-cursor {
+  left: 75%;
+  top: 58.3%;
+}
+.cell:nth-child(24):hover ~ .flow-cursor {
+  left: 91.6%;
+  top: 58.3%;
+}
+/* Row 5 */
+.cell:nth-child(25):hover ~ .flow-cursor {
+  left: 8.3%;
+  top: 75%;
+}
+.cell:nth-child(26):hover ~ .flow-cursor {
+  left: 25%;
+  top: 75%;
+}
+.cell:nth-child(27):hover ~ .flow-cursor {
+  left: 41.6%;
+  top: 75%;
+}
+.cell:nth-child(28):hover ~ .flow-cursor {
+  left: 58.3%;
+  top: 75%;
+}
+.cell:nth-child(29):hover ~ .flow-cursor {
+  left: 75%;
+  top: 75%;
+}
+.cell:nth-child(30):hover ~ .flow-cursor {
+  left: 91.6%;
+  top: 75%;
+}
+/* Row 6 */
+.cell:nth-child(31):hover ~ .flow-cursor {
+  left: 8.3%;
+  top: 91.6%;
+}
+.cell:nth-child(32):hover ~ .flow-cursor {
+  left: 25%;
+  top: 91.6%;
+}
+.cell:nth-child(33):hover ~ .flow-cursor {
+  left: 41.6%;
+  top: 91.6%;
+}
+.cell:nth-child(34):hover ~ .flow-cursor {
+  left: 58.3%;
+  top: 91.6%;
+}
+.cell:nth-child(35):hover ~ .flow-cursor {
+  left: 75%;
+  top: 91.6%;
+}
+.cell:nth-child(36):hover ~ .flow-cursor {
+  left: 91.6%;
+  top: 91.6%;
+}
+
+@keyframes fluid-shape {
+  0% {
+    border-radius: 42% 58% 70% 30% / 45% 45% 55% 55%;
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  50% {
+    border-radius: 70% 30% 52% 48% / 60% 40% 60% 40%;
+  }
+  100% {
+    border-radius: 45% 55% 35% 65% / 40% 60% 40% 60%;
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+/* Keep element interactive structures intact */
+.page-content {
+  position: relative;
+  z-index: 10;
+  pointer-events: none;
+}
+.page-content *,
+.page-content a,
+.page-content button,
+.page-content input,
+.page-content select,
+.page-content textarea,
+.page-content div,
+.page-content section,
+.page-content article,
+.page-content nav,
+.page-content li {
+  pointer-events: auto !important;
+}

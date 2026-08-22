@@ -49,8 +49,8 @@
 .step-num {
   font-size: 1.5rem;
   font-weight: bold;
-  color: #c0392b; /* Tailor Red */
-  border: 2px solid #c0392b;
+  color: black; /* Tailor Red */
+  border: 2px solid black;
   width: 50px;
   height: 50px;
   display: flex;
@@ -81,7 +81,7 @@
   position: absolute;
   bottom: -20px;
   right: -20px;
-  background: #c0392b;
+  background: #1a1a1a;
   color: white;
   padding: 20px;
   border-radius: 10px;
@@ -91,7 +91,7 @@
 /* Standards Banner */
 .standards-banner {
   /* background: #f9f9f9; */
-  background-color: #1a1a1a;
+  background-color: #f2f2f2;
   padding: 60px 0;
 }
 
@@ -102,13 +102,13 @@
 }
 
 .standard-box h4 {
-  color: #c0392b;
+  color: black;
   font-size: 1.2rem;
   margin-bottom: 10px;
   text-transform: uppercase;
 }
 .standard-box p {
-  color: white;
+  color: #1a1a1a;
 }
 
 /* Responsive */
