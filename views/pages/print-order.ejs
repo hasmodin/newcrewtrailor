@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Order Sheet - <%= order.name %></title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        padding: 20px;
+        background-color: #fff;
+      }
+      .order-card {
+        max-width: 1000px;
+        margin: 0 auto;
+        background: #fff;
+        border: 2px solid #333;
+        padding: 15px;
+      }
+      .header-title {
+        text-align: center;
+        background-color: #b0b5bc;
+        font-weight: bold;
+        font-size: 24px;
+        padding: 10px;
+        border: 1px solid #333;
+        margin-bottom: 5px;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 10px;
+      }
+      th,
+      td {
+        border: 1px solid #444;
+        text-align: center;
+        font-size: 13px;
+        padding: 6px;
+      }
+
+      .label-col {
+        background-color: #e2e5e9;
+        font-weight: bold;
+        text-align: left;
+        padding-left: 8px;
+        width: 15%;
+      }
+      .input-col {
+        width: 35%;
+        text-align: left;
+        padding-left: 8px;
+      }
+
+      /* Color coding matching the original physical form */
+      .bg-blue {
+        background-color: #8daed8;
+        color: #000;
+        font-weight: bold;
+      }
+      .bg-orange {
+        background-color: #a84d2a;
+        color: #fff;
+        font-weight: bold;
+      }
+      .bg-gray-dark {
+        background-color: #838891;
+        color: #fff;
+        font-weight: bold;
+      }
+      .bg-gray-light {
+        background-color: #d1d5db;
+        font-weight: bold;
+      }
+
+      .action-bar {
+        max-width: 1000px;
+        margin: 0 auto 15px auto;
+        display: flex;
+        justify-content: space-between;
+      }
+      .btn {
+        padding: 10px 20px;
+        font-size: 16px;
+        font-weight: bold;
+        border: none;
+        cursor: pointer;
+        border-radius: 4px;
+        text-decoration: none;
+      }
+      .btn-print {
+        background-color: #007bff;
+        color: white;
+      }
+      .btn-new {
+        background-color: #6c757d;
+        color: white;
+      }
+
+      /* --- Print Styles --- */
+      @media print {
+        body {
+          padding: 0;
+          background: #fff;
+        }
+        .action-bar {
+          display: none !important;
+        }
+        .order-card {
+          border: 1px solid #000;
+          padding: 0;
+        }
+        @page {
+          size: A4 landscape;
+          margin: 10mm;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Controls (Hidden when printing) -->
+    <div class="action-bar">
+      <a href="/orders" class="btn btn-new">+ New Order</a>
+      <button onclick="window.print()" class="btn btn-print">
+        Print / Save as PDF
+      </button>
+    </div>
+
+    <div class="order-card">
+      <div class="header-title">NEW CREW TAILOR</div>
+
+      <!-- Top Details -->
+      <table>
+        <tr>
+          <td class="label-col">Date</td>
+          <td class="input-col">
+            <%= order.date ? new Date(order.date).toISOString().split('T')[0] :
+            '' %>
+          </td>
+          <td class="label-col">Company</td>
+          <td class="input-col"><%= order.company %></td>
+        </tr>
+        <tr>
+          <td class="label-col">Name</td>
+          <td class="input-col"><strong><%= order.name %></strong></td>
+          <td class="label-col" rowspan="4">Remarks</td>
+          <td
+            rowspan="4"
+            style="text-align: left; vertical-align: top; padding: 8px"
+          >
+            <%= order.remarks %>
+          </td>
+        </tr>
+        <tr>
+          <td class="label-col">Contact</td>
+          <td class="input-col"><%= order.contact %></td>
+        </tr>
+        <tr>
+          <td class="label-col">Fitting date</td>
+          <td class="input-col">
+            <%= order.fittingDate ? new
+            Date(order.fittingDate).toISOString().split('T')[0] : '' %>
+          </td>
+        </tr>
+        <tr>
+          <td class="label-col">Delivery date</td>
+          <td class="input-col">
+            <%= order.deliveryDate ? new
+            Date(order.deliveryDate).toISOString().split('T')[0] : '' %>
+          </td>
+        </tr>
+      </table>
+
+      <!-- Main Grid Data -->
+      <table>
+        <!-- Quantities Header -->
+        <tr>
+          <td style="width: 15%"></td>
+          <td class="bg-blue">Jackets</td>
+          <td class="bg-blue">Shirts</td>
+          <td class="bg-blue">Trousers</td>
+          <td class="bg-blue">Skirts</td>
+          <td class="bg-blue">Blouses</td>
+          <td class="bg-blue">Dresses</td>
+          <td class="bg-blue">Chef</td>
+          <td class="bg-blue">Apron</td>
+          <td class="bg-blue">Waistcoat</td>
+          <td class="bg-blue">Dr. Coat</td>
+          <td class="bg-orange">Alterations</td>
+        </tr>
+        <!-- Qty Values -->
+        <tr>
+          <td class="bg-gray-light">Qty</td>
+          <td><%= order.quantities?.jackets || '' %></td>
+          <td><%= order.quantities?.shirts || '' %></td>
+          <td><%= order.quantities?.trousers || '' %></td>
+          <td><%= order.quantities?.skirts || '' %></td>
+          <td><%= order.quantities?.blouses || '' %></td>
+          <td><%= order.quantities?.dresses || '' %></td>
+          <td><%= order.quantities?.chef || '' %></td>
+          <td><%= order.quantities?.apron || '' %></td>
+          <td><%= order.quantities?.waistcoat || '' %></td>
+          <td><%= order.quantities?.drCoat || '' %></td>
+          <td><%= order.quantities?.alterations || '' %></td>
+        </tr>
+
+        <!-- Top Measurements Header -->
+        <tr class="bg-gray-dark">
+          <td>Top Measurements</td>
+          <td>length</td>
+          <td>shoulder</td>
+          <td>sleeve length</td>
+          <td>cuff</td>
+          <td>chest</td>
+          <td>waist</td>
+          <td>hip</td>
+          <td>back width</td>
+          <td>bicep</td>
+          <td>neck</td>
+          <td>vest length</td>
+        </tr>
+        <!-- Top Measurements Values -->
+        <tr>
+          <td class="bg-gray-light">Top</td>
+          <td><%= order.measurements?.top?.length || '' %></td>
+          <td><%= order.measurements?.top?.shoulder || '' %></td>
+          <td><%= order.measurements?.top?.sleeveLength || '' %></td>
+          <td><%= order.measurements?.top?.cuff || '' %></td>
+          <td><%= order.measurements?.top?.chest || '' %></td>
+          <td><%= order.measurements?.top?.waist || '' %></td>
+          <td><%= order.measurements?.top?.hip || '' %></td>
+          <td><%= order.measurements?.top?.backWidth || '' %></td>
+          <td><%= order.measurements?.top?.bicep || '' %></td>
+          <td><%= order.measurements?.top?.neck || '' %></td>
+          <td><%= order.measurements?.top?.vestLength || '' %></td>
+        </tr>
+
+        <!-- Bottom Measurements Header -->
+        <tr class="bg-gray-dark">
+          <td>Bottom Measurements</td>
+          <td>length</td>
+          <td>front rise</td>
+          <td>inside length</td>
+          <td>waist</td>
+          <td>hip</td>
+          <td>thigh</td>
+          <td>knee</td>
+          <td>bottom</td>
+          <td>high rise</td>
+          <td>skirts length</td>
+          <td class="bg-orange">Alterations</td>
+        </tr>
+        <!-- Bottom Measurements Values -->
+        <tr>
+          <td class="bg-gray-light">BOTTOM</td>
+          <td><%= order.measurements?.bottom?.length || '' %></td>
+          <td><%= order.measurements?.bottom?.frontRise || '' %></td>
+          <td><%= order.measurements?.bottom?.insideLength || '' %></td>
+          <td><%= order.measurements?.bottom?.waist || '' %></td>
+          <td><%= order.measurements?.bottom?.hip || '' %></td>
+          <td><%= order.measurements?.bottom?.thigh || '' %></td>
+          <td><%= order.measurements?.bottom?.knee || '' %></td>
+          <td><%= order.measurements?.bottom?.bottom || '' %></td>
+          <td><%= order.measurements?.bottom?.highRise || '' %></td>
+          <td><%= order.measurements?.bottom?.skirtsLength || '' %></td>
+          <td><%= order.measurements?.bottom?.alterations || '' %></td>
+        </tr>
+
+        <!-- Top Style Header -->
+        <tr class="bg-gray-dark">
+          <td>Top style</td>
+          <td>jacket buttons</td>
+          <td>jacket vent</td>
+          <td>jacket lapel</td>
+          <td>hand stitch</td>
+          <td>vest button</td>
+          <td>shirt collar</td>
+          <td>shirt patti</td>
+          <td>shirts cuff</td>
+          <td>shirts cut</td>
+          <td>shirts pocket</td>
+          <td>waistcoat</td>
+        </tr>
+        <!-- Top Style Values -->
+        <tr>
+          <td class="bg-gray-light">Style</td>
+          <td><%= order.topStyle?.jacketButtons || '' %></td>
+          <td><%= order.topStyle?.jacketVent || '' %></td>
+          <td><%= order.topStyle?.jacketLapel || '' %></td>
+          <td><%= order.topStyle?.handStitch || '' %></td>
+          <td><%= order.topStyle?.vestButton || '' %></td>
+          <td><%= order.topStyle?.shirtCollar || '' %></td>
+          <td><%= order.topStyle?.shirtPatti || '' %></td>
+          <td><%= order.topStyle?.shirtsCuff || '' %></td>
+          <td><%= order.topStyle?.shirtsCut || '' %></td>
+          <td><%= order.topStyle?.shirtsPocket || '' %></td>
+          <td><%= order.topStyle?.waistcoat || '' %></td>
+        </tr>
+
+        <!-- Bottom Style Header -->
+        <tr class="bg-gray-dark">
+          <td>Mottom style</td>
+          <td>TR belt</td>
+          <td>TR pocket</td>
+          <td>Hip pocket</td>
+          <td>TR turnup</td>
+          <td>TR R-plate</td>
+          <td>TR loops</td>
+          <td>Skirts loops</td>
+          <td>Skirts vent</td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <!-- Bottom Style Values -->
+        <tr>
+          <td class="bg-gray-light">Style</td>
+          <td><%= order.bottomStyle?.trBelt || '' %></td>
+          <td><%= order.bottomStyle?.trPocket || '' %></td>
+          <td><%= order.bottomStyle?.hipPocket || '' %></td>
+          <td><%= order.bottomStyle?.trTurnup || '' %></td>
+          <td><%= order.bottomStyle?.trRPlate || '' %></td>
+          <td><%= order.bottomStyle?.trLoops || '' %></td>
+          <td><%= order.bottomStyle?.skirtsLoops || '' %></td>
+          <td><%= order.bottomStyle?.skirtsVent || '' %></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+      </table>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,213 @@
+<%- layout("layouts/boilerplate") %>
+<div class="order-card">
+  <div class="header-title">NEW CREW TAILOR</div>
+
+  <form action="/orders" method="POST">
+    <!-- Top Customer Info Section -->
+
+    <table class="top-info-table">
+      <tr>
+        <td class="label-col">Date</td>
+        <td class="input-col"><input type="date" name="date" /></td>
+        <td class="label-col">Company</td>
+        <td><input type="text" name="company" /></td>
+      </tr>
+      <tr>
+        <td class="label-col">Name</td>
+        <td class="input-col">
+          <input type="text" name="name" required />
+        </td>
+        <td class="label-col" rowspan="4">Remarks</td>
+        <td rowspan="4" style="vertical-align: top">
+          <textarea name="remarks"></textarea>
+        </td>
+      </tr>
+      <tr>
+        <td class="label-col">Contact</td>
+        <td class="input-col">
+          <input type="text" name="contact" required />
+        </td>
+      </tr>
+      <tr>
+        <td class="label-col">Fitting date</td>
+        <td class="input-col"><input type="date" name="fittingDate" /></td>
+      </tr>
+      <tr>
+        <td class="label-col">Delivery date</td>
+        <td class="input-col"><input type="date" name="deliveryDate" /></td>
+      </tr>
+    </table>
+
+    <!-- Main Data Table -->
+    <div class="table-responsive">
+      <table>
+        <!-- Garment Categories -->
+        <tr>
+          <td style="width: 15%"></td>
+          <td class="bg-blue">Jackets</td>
+          <td class="bg-blue">Shirts</td>
+          <td class="bg-blue">Trousers</td>
+          <td class="bg-blue">Skirts</td>
+          <td class="bg-blue">Blouses</td>
+          <td class="bg-blue">Dresses</td>
+          <td class="bg-blue">Chef</td>
+          <td class="bg-blue">Apron</td>
+          <td class="bg-blue">Waistcoat</td>
+          <td class="bg-blue">Dr. Coat</td>
+          <td class="bg-orange">Alterations</td>
+        </tr>
+        <!-- Quantity Row -->
+        <tr>
+          <td class="bg-gray-light">Qty</td>
+          <td><input type="number" name="quantities[jackets]" /></td>
+          <td><input type="number" name="quantities[shirts]" /></td>
+          <td><input type="number" name="quantities[trousers]" /></td>
+          <td><input type="number" name="quantities[skirts]" /></td>
+          <td><input type="number" name="quantities[blouses]" /></td>
+          <td><input type="number" name="quantities[dresses]" /></td>
+          <td><input type="number" name="quantities[chef]" /></td>
+          <td><input type="number" name="quantities[apron]" /></td>
+          <td><input type="number" name="quantities[waistcoat]" /></td>
+          <td><input type="number" name="quantities[drCoat]" /></td>
+          <td><input type="number" name="quantities[alterations]" /></td>
+        </tr>
+
+        <!-- Top Measurements Header -->
+        <tr class="bg-gray-dark">
+          <td>Top Measurements</td>
+          <td>length</td>
+          <td>shoulder</td>
+          <td>sleeve length</td>
+          <td>cuff</td>
+          <td>chest</td>
+          <td>waist</td>
+          <td>hip</td>
+          <td>back width</td>
+          <td>bicep</td>
+          <td>neck</td>
+          <td>vest length</td>
+        </tr>
+        <!-- Top Measurements Inputs -->
+        <tr>
+          <td class="bg-gray-light">Top</td>
+          <td><input type="text" name="measurements[top][length]" /></td>
+          <td><input type="text" name="measurements[top][shoulder]" /></td>
+          <td>
+            <input type="text" name="measurements[top][sleeveLength]" />
+          </td>
+          <td><input type="text" name="measurements[top][cuff]" /></td>
+          <td><input type="text" name="measurements[top][chest]" /></td>
+          <td><input type="text" name="measurements[top][waist]" /></td>
+          <td><input type="text" name="measurements[top][hip]" /></td>
+          <td><input type="text" name="measurements[top][backWidth]" /></td>
+          <td><input type="text" name="measurements[top][bicep]" /></td>
+          <td><input type="text" name="measurements[top][neck]" /></td>
+          <td><input type="text" name="measurements[top][vestLength]" /></td>
+        </tr>
+
+        <!-- Bottom Measurements Header -->
+        <tr class="bg-gray-dark">
+          <td>Bottom Measurements</td>
+          <td>length</td>
+          <td>front rise</td>
+          <td>inside length</td>
+          <td>waist</td>
+          <td>hip</td>
+          <td>thigh</td>
+          <td>knee</td>
+          <td>bottom</td>
+          <td>high rise</td>
+          <td>skirts length</td>
+          <td class="bg-orange">Alterations</td>
+        </tr>
+        <!-- Bottom Measurements Inputs -->
+        <tr>
+          <td class="bg-gray-light">BOTTOM</td>
+          <td><input type="text" name="measurements[bottom][length]" /></td>
+          <td>
+            <input type="text" name="measurements[bottom][frontRise]" />
+          </td>
+          <td>
+            <input type="text" name="measurements[bottom][insideLength]" />
+          </td>
+          <td><input type="text" name="measurements[bottom][waist]" /></td>
+          <td><input type="text" name="measurements[bottom][hip]" /></td>
+          <td><input type="text" name="measurements[bottom][thigh]" /></td>
+          <td><input type="text" name="measurements[bottom][knee]" /></td>
+          <td><input type="text" name="measurements[bottom][bottom]" /></td>
+          <td><input type="text" name="measurements[bottom][highRise]" /></td>
+          <td>
+            <input type="text" name="measurements[bottom][skirtsLength]" />
+          </td>
+          <td>
+            <input type="text" name="measurements[bottom][alterations]" />
+          </td>
+        </tr>
+
+        <!-- Top Style Header -->
+        <tr class="bg-gray-dark">
+          <td>Top style</td>
+          <td>jacket buttons</td>
+          <td>jacket vent</td>
+          <td>jacket lapel</td>
+          <td>hand stitch</td>
+          <td>vest button</td>
+          <td>shirt collar</td>
+          <td>shirt patti</td>
+          <td>shirts cuff</td>
+          <td>shirts cut</td>
+          <td>shirts pocket</td>
+          <td>waistcoat</td>
+        </tr>
+        <!-- Top Style Inputs -->
+        <tr>
+          <td class="bg-gray-light">Style</td>
+          <td><input type="text" name="topStyle[jacketButtons]" /></td>
+          <td><input type="text" name="topStyle[jacketVent]" /></td>
+          <td><input type="text" name="topStyle[jacketLapel]" /></td>
+          <td><input type="text" name="topStyle[handStitch]" /></td>
+          <td><input type="text" name="topStyle[vestButton]" /></td>
+          <td><input type="text" name="topStyle[shirtCollar]" /></td>
+          <td><input type="text" name="topStyle[shirtPatti]" /></td>
+          <td><input type="text" name="topStyle[shirtsCuff]" /></td>
+          <td><input type="text" name="topStyle[shirtsCut]" /></td>
+          <td><input type="text" name="topStyle[shirtsPocket]" /></td>
+          <td><input type="text" name="topStyle[waistcoat]" /></td>
+        </tr>
+
+        <!-- Bottom Style Header -->
+        <tr class="bg-gray-dark">
+          <td>Mottom style</td>
+          <td>TR belt</td>
+          <td>TR pocket</td>
+          <td>Hip pocket</td>
+          <td>TR turnup</td>
+          <td>TR R-plate</td>
+          <td>TR loops</td>
+          <td>Skirts loops</td>
+          <td>Skirts vent</td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <!-- Bottom Style Inputs -->
+        <tr>
+          <td class="bg-gray-light">Style</td>
+          <td><input type="text" name="bottomStyle[trBelt]" /></td>
+          <td><input type="text" name="bottomStyle[trPocket]" /></td>
+          <td><input type="text" name="bottomStyle[hipPocket]" /></td>
+          <td><input type="text" name="bottomStyle[trTurnup]" /></td>
+          <td><input type="text" name="bottomStyle[trRPlate]" /></td>
+          <td><input type="text" name="bottomStyle[trLoops]" /></td>
+          <td><input type="text" name="bottomStyle[skirtsLoops]" /></td>
+          <td><input type="text" name="bottomStyle[skirtsVent]" /></td>
+          <td><input type="text" disabled /></td>
+          <td><input type="text" disabled /></td>
+          <td><input type="text" disabled /></td>
+        </tr>
+      </table>
+    </div>
+
+    <button type="submit" class="btn-submit">Save & Submit Order</button>
+  </form>
+</div>

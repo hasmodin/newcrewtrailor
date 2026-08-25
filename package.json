@@ -16,6 +16,7 @@
     "ejs": "^4.0.1",
     "ejs-mate": "^4.0.0",
     "express": "^5.2.1",
+    "mongodb": "^7.6.0",
     "nodemailer": "^8.0.1",
     "resend": "^6.21.0"
   }

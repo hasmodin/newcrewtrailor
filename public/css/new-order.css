@@ -1,0 +1,154 @@
+/* --- Base Styles --- */
+
+.order-card {
+  max-width: 1200px;
+  margin: 2rem auto;
+  background: #fff;
+  padding: 20px 15px;
+  border: 2px solid #333;
+}
+
+.header-title {
+  text-align: center;
+  background-color: #b0b5bc;
+  font-weight: bold;
+  font-size: 20px;
+  padding: 10px;
+  border: 1px solid #333;
+  margin-bottom: 10px;
+}
+
+/* Responsive Table Wrapper */
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+  margin-bottom: 15px;
+}
+
+table {
+  width: 100%;
+  min-width: 800px; /* Prevents table columns from squishing on small screens */
+  border-collapse: collapse;
+}
+
+th,
+td {
+  border: 1px solid #444;
+  text-align: center;
+  font-size: 12px;
+  padding: 4px 2px;
+}
+
+.label-col {
+  background-color: #e2e5e9;
+  font-weight: bold;
+  text-align: left;
+  padding-left: 8px;
+  width: 15%;
+}
+
+.input-col {
+  width: 35%;
+}
+
+input[type="text"],
+input[type="date"],
+input[type="number"],
+textarea {
+  width: 100%;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 13px;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+textarea {
+  height: 100%;
+  min-height: 80px;
+  resize: vertical;
+  text-align: left;
+}
+
+/* Color coding */
+.bg-blue {
+  background-color: #8daed8;
+  color: #000;
+  font-weight: bold;
+}
+.bg-orange {
+  background-color: #a84d2a;
+  color: #fff;
+  font-weight: bold;
+}
+.bg-gray-dark {
+  background-color: #838891;
+  color: #fff;
+  font-weight: bold;
+}
+.bg-gray-light {
+  background-color: #d1d5db;
+  font-weight: bold;
+}
+
+.btn-submit {
+  margin-top: 15px;
+  width: 100%;
+  padding: 14px;
+  background: #28a745;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.btn-submit:hover {
+  text-decoration: underline;
+}
+
+/* --- Mobile Specific Overrides (Screens under 768px) --- */
+@media screen and (max-width: 768px) {
+  body {
+    padding: 5px;
+  }
+
+  .order-card {
+    padding: 8px;
+  }
+
+  .header-title {
+    font-size: 18px;
+    padding: 8px;
+  }
+
+  /* Make top details table stack cleaner on mobile */
+  .top-info-table {
+    min-width: 100% !important;
+  }
+
+  .top-info-table tr {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .top-info-table td {
+    display: block;
+    width: 100% !important;
+    box-sizing: border-box;
+    text-align: left;
+  }
+
+  .top-info-table .label-col {
+    background-color: #d1d5db;
+    padding: 6px;
+  }
+
+  .top-info-table input,
+  .top-info-table textarea {
+    text-align: left;
+    padding: 4px;
+  }
+}

@@ -73,14 +73,21 @@
     padding: 60px 15px;
   }
 
-  .logo-name {
-    gap: 0.5rem;
+  /* .logo-name {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    font-size: 1rem;
   }
+  .logo-name h1 {
+    display: inline !important;
+  } */
 
   .hero-content p {
     font-size: 1.1rem; /* Adjusting the paragraph we worked on earlier */
   }
 }
+
 .hero-content a {
   display: inline-block;
   margin: 1.5rem auto 0;
