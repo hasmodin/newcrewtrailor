@@ -5,6 +5,8 @@ const OrderSchema = new mongoose.Schema({
   date: { type: Date, default: Date.now },
   name: { type: String, required: true },
   contact: { type: String, required: true },
+  countryStandard: String,
+  selectedSize: String,
   company: { type: String },
   fittingDate: Date,
   deliveryDate: Date,

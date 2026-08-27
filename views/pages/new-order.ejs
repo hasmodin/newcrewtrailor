@@ -10,6 +10,7 @@
         <td class="label-col">Date</td>
         <td class="input-col"><input type="date" name="date" /></td>
         <td class="label-col">Company</td>
+
         <td><input type="text" name="company" /></td>
       </tr>
       <tr>
@@ -87,6 +88,59 @@
           <td>neck</td>
           <td>vest length</td>
         </tr>
+
+        <!-- Size Selector Control Panel -->
+
+        <!-- HTML Controls -->
+        <fieldset
+          style="
+            margin-bottom: 15px;
+            background-color: #f0f4f8;
+            padding: 12px;
+            border: 1px solid #b0bec5;
+          "
+        >
+          <legend><strong>Standard Size Converter</strong></legend>
+          <div
+            style="
+              display: flex;
+              gap: 15px;
+              align-items: center;
+              flex-wrap: wrap;
+            "
+          >
+            <label>
+              <strong>Gender:</strong>
+              <select id="genderSelect" onchange="applyStandardSizes()">
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+              </select>
+            </label>
+
+            <label>
+              <strong>Country Standard:</strong>
+              <select id="countrySelect" onchange="applyStandardSizes()">
+                <option value="US">USA / US</option>
+                <option value="UK">UK / British</option>
+                <option value="EU">EU / Europe</option>
+              </select>
+            </label>
+
+            <label>
+              <strong>Select Size:</strong>
+              <select id="sizeSelect" onchange="applyStandardSizes()">
+                <option value="">-- Custom --</option>
+                <option value="XS">XS</option>
+                <option value="S">S</option>
+                <option value="M">M</option>
+                <option value="L">L</option>
+                <option value="XL">XL</option>
+                <option value="2XL">2XL</option>
+              </select>
+            </label>
+          </div>
+        </fieldset>
+
         <!-- Top Measurements Inputs -->
         <tr>
           <td class="bg-gray-light">Top</td>
@@ -120,6 +174,7 @@
           <td>skirts length</td>
           <td class="bg-orange">Alterations</td>
         </tr>
+
         <!-- Bottom Measurements Inputs -->
         <tr>
           <td class="bg-gray-light">BOTTOM</td>
@@ -211,3 +266,352 @@
     <button type="submit" class="btn-submit">Save & Submit Order</button>
   </form>
 </div>
+
+<script>
+  // Size Standards Matrix (Inches)
+  const sizeCharts = {
+    male: {
+      US: {
+        XS: {
+          chest: "34",
+          waist: "28",
+          hip: "35",
+          shoulder: "16.5",
+          topLength: "27",
+          trouserLength: "39",
+        },
+        S: {
+          chest: "36",
+          waist: "30",
+          hip: "37",
+          shoulder: "17.0",
+          topLength: "28",
+          trouserLength: "40",
+        },
+        M: {
+          chest: "40",
+          waist: "34",
+          hip: "41",
+          shoulder: "18.0",
+          topLength: "29",
+          trouserLength: "41",
+        },
+        L: {
+          chest: "44",
+          waist: "38",
+          hip: "45",
+          shoulder: "19.0",
+          topLength: "30",
+          trouserLength: "42",
+        },
+        XL: {
+          chest: "48",
+          waist: "42",
+          hip: "49",
+          shoulder: "20.0",
+          topLength: "31",
+          trouserLength: "43",
+        },
+        "2XL": {
+          chest: "52",
+          waist: "46",
+          hip: "53",
+          shoulder: "21.0",
+          topLength: "32",
+          trouserLength: "44",
+        },
+      },
+      UK: {
+        XS: {
+          chest: "34",
+          waist: "28",
+          hip: "34",
+          shoulder: "16.0",
+          topLength: "26.5",
+          trouserLength: "38.5",
+        },
+        S: {
+          chest: "36",
+          waist: "30",
+          hip: "36",
+          shoulder: "16.5",
+          topLength: "27.5",
+          trouserLength: "39.5",
+        },
+        M: {
+          chest: "38",
+          waist: "32",
+          hip: "38",
+          shoulder: "17.5",
+          topLength: "28.5",
+          trouserLength: "40.5",
+        },
+        L: {
+          chest: "42",
+          waist: "36",
+          hip: "42",
+          shoulder: "18.5",
+          topLength: "29.5",
+          trouserLength: "41.5",
+        },
+        XL: {
+          chest: "46",
+          waist: "40",
+          hip: "46",
+          shoulder: "19.5",
+          topLength: "30.5",
+          trouserLength: "42.5",
+        },
+        "2XL": {
+          chest: "50",
+          waist: "44",
+          hip: "50",
+          shoulder: "20.5",
+          topLength: "31.5",
+          trouserLength: "43.5",
+        },
+      },
+      EU: {
+        XS: {
+          chest: "34.5",
+          waist: "29.5",
+          hip: "35.5",
+          shoulder: "16.5",
+          topLength: "27",
+          trouserLength: "39",
+        },
+        S: {
+          chest: "37.5",
+          waist: "31.5",
+          hip: "38.5",
+          shoulder: "17.3",
+          topLength: "28",
+          trouserLength: "40",
+        },
+        M: {
+          chest: "41.0",
+          waist: "35.0",
+          hip: "42.0",
+          shoulder: "18.1",
+          topLength: "29",
+          trouserLength: "41",
+        },
+        L: {
+          chest: "45.0",
+          waist: "39.0",
+          hip: "46.0",
+          shoulder: "18.9",
+          topLength: "30",
+          trouserLength: "42",
+        },
+        XL: {
+          chest: "49.0",
+          waist: "43.0",
+          hip: "50.0",
+          shoulder: "19.7",
+          topLength: "31",
+          trouserLength: "43",
+        },
+        "2XL": {
+          chest: "53.0",
+          waist: "47.0",
+          hip: "54.0",
+          shoulder: "20.5",
+          topLength: "32",
+          trouserLength: "44",
+        },
+      },
+    },
+    female: {
+      US: {
+        XS: {
+          chest: "32",
+          waist: "25",
+          hip: "35",
+          shoulder: "14.5",
+          topLength: "23.5",
+          trouserLength: "37.5",
+        },
+        S: {
+          chest: "34",
+          waist: "27",
+          hip: "37",
+          shoulder: "15.0",
+          topLength: "24.0",
+          trouserLength: "38.0",
+        },
+        M: {
+          chest: "37",
+          waist: "30",
+          hip: "40",
+          shoulder: "15.5",
+          topLength: "25.0",
+          trouserLength: "39.0",
+        },
+        L: {
+          chest: "40",
+          waist: "33",
+          hip: "43",
+          shoulder: "16.0",
+          topLength: "26.0",
+          trouserLength: "40.0",
+        },
+        XL: {
+          chest: "43",
+          waist: "36",
+          hip: "46",
+          shoulder: "16.5",
+          topLength: "27.0",
+          trouserLength: "41.0",
+        },
+        "2XL": {
+          chest: "47",
+          waist: "40",
+          hip: "50",
+          shoulder: "17.0",
+          topLength: "28.0",
+          trouserLength: "42.0",
+        },
+      },
+      UK: {
+        XS: {
+          chest: "31",
+          waist: "24",
+          hip: "34",
+          shoulder: "14.0",
+          topLength: "23.0",
+          trouserLength: "37.0",
+        },
+        S: {
+          chest: "33",
+          waist: "26",
+          hip: "36",
+          shoulder: "14.5",
+          topLength: "23.5",
+          trouserLength: "37.5",
+        },
+        M: {
+          chest: "35",
+          waist: "28",
+          hip: "38",
+          shoulder: "15.0",
+          topLength: "24.5",
+          trouserLength: "38.5",
+        },
+        L: {
+          chest: "38",
+          waist: "31",
+          hip: "41",
+          shoulder: "15.5",
+          topLength: "25.5",
+          trouserLength: "39.5",
+        },
+        XL: {
+          chest: "41",
+          waist: "34",
+          hip: "44",
+          shoulder: "16.0",
+          topLength: "26.5",
+          trouserLength: "40.5",
+        },
+        "2XL": {
+          chest: "45",
+          waist: "38",
+          hip: "48",
+          shoulder: "16.5",
+          topLength: "27.5",
+          trouserLength: "41.5",
+        },
+      },
+      EU: {
+        XS: {
+          chest: "31.5",
+          waist: "24.5",
+          hip: "34.5",
+          shoulder: "14.2",
+          topLength: "23.0",
+          trouserLength: "37.0",
+        },
+        S: {
+          chest: "33.5",
+          waist: "26.5",
+          hip: "36.5",
+          shoulder: "14.7",
+          topLength: "24.0",
+          trouserLength: "38.0",
+        },
+        M: {
+          chest: "36.5",
+          waist: "29.5",
+          hip: "39.5",
+          shoulder: "15.3",
+          topLength: "25.0",
+          trouserLength: "39.0",
+        },
+        L: {
+          chest: "39.5",
+          waist: "32.5",
+          hip: "42.5",
+          shoulder: "15.9",
+          topLength: "26.0",
+          trouserLength: "40.0",
+        },
+        XL: {
+          chest: "43.0",
+          waist: "36.0",
+          hip: "46.0",
+          shoulder: "16.5",
+          topLength: "27.0",
+          trouserLength: "41.0",
+        },
+        "2XL": {
+          chest: "47.0",
+          waist: "40.0",
+          hip: "50.0",
+          shoulder: "17.1",
+          topLength: "28.0",
+          trouserLength: "42.0",
+        },
+      },
+    },
+  };
+
+  function applyStandardSizes() {
+    const gender = document.getElementById("genderSelect").value;
+    const country = document.getElementById("countrySelect").value;
+    const size = document.getElementById("sizeSelect").value;
+
+    if (!size || !sizeCharts[gender]?.[country]?.[size]) return;
+
+    const data = sizeCharts[gender][country][size];
+
+    // Set Top Fields
+    const chestInput = document.querySelector(
+      'input[name="measurements[top][chest]"]',
+    );
+    const shoulderInput = document.querySelector(
+      'input[name="measurements[top][shoulder]"]',
+    );
+    const topLengthInput = document.querySelector(
+      'input[name="measurements[top][length]"]',
+    );
+
+    // Set Bottom Fields
+    const waistInput = document.querySelector(
+      'input[name="measurements[bottom][waist]"]',
+    );
+    const hipInput = document.querySelector(
+      'input[name="measurements[bottom][hip]"]',
+    );
+    const bottomLengthInput = document.querySelector(
+      'input[name="measurements[bottom][length]"]',
+    );
+
+    if (chestInput) chestInput.value = data.chest;
+    if (shoulderInput) shoulderInput.value = data.shoulder;
+    if (topLengthInput) topLengthInput.value = data.topLength;
+    if (waistInput) waistInput.value = data.waist;
+    if (hipInput) hipInput.value = data.hip;
+    if (bottomLengthInput) bottomLengthInput.value = data.trouserLength;
+  }
+</script>
